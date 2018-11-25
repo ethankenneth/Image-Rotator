@@ -1,0 +1,90 @@
+<!DOCTYPE HTML>
+<html>
+<head>
+ <script>
+
+ var imgArray = new Array ();
+ imgArray[0] = 'img/cycle1.jpg';
+ imgArray[1] = 'img/cycle2.jpg';
+ imgArray[2] = 'img/cycle3.jpg';
+ imgArray[3] = 'img/cycle4.jpg';
+
+ var currentImageIndex=0;
+
+ function nextImage(direction){
+	 var image = document.getElementById('cycleImg');
+
+	 if(direction == 1){
+		 if(currentImageIndex == (imgArray.length-1))
+		 	currentImageIndex = 0;
+			else
+				currentImageIndex++;
+			}
+			else { // it must be -1 at this point
+				if (currentImageIndex == 0)
+				currentImageIndex = (imgArray.length-1);
+				else
+				currentImageIndex--;
+			}
+			image.src = imgArray[currentImageIndex];
+ }
+
+
+ </script>
+
+<!--
+	<script>
+		var imgArray = new Array ();
+		imgArray[0] = 'img/cycle1.jpg';
+		imgArray[1] = 'img/cycle2.jpg';
+		imgArray[2] = 'img/cycle3.jpg';
+		imgArray[3] = 'img/cycle4.jpg';
+
+		var currentImageIndex=0;
+
+		function nextImage(){
+
+			var image = document.getElementById('cycleImg');
+
+			currentImageIndex++;
+
+			if(currentImageIndex == 4){
+				currentImageIndex = 0;
+			}
+			image.src = imgArray[currentImageIndex];
+		}
+
+		function previousImage(){
+
+			var image = document.getElementById('cycleImg');
+
+			currentImageIndex--;
+
+			if(currentImageIndex == -1){
+				currentImageIndex = 3;
+			}
+			image.src = imgArray[currentImageIndex];
+		}
+
+
+	</script>
+-->
+</head>
+
+<body>
+
+	<div align="center">
+		<img src='img/cycle1.jpg' id='cycleImg' alt="Image" width="800" height="400">
+	</div>
+
+	<div align="center">
+	    <h1>The image selected number and name is: <h1 id='imageSelection'></h1></h1>
+	</div>
+
+	<div align="center">
+		<button type='button' onclick='previousImage()'>Previous Image</button>
+		<button type='button' onclick='nextImage()'>Next Image</button>
+
+	</div>
+</body>
+</html>
